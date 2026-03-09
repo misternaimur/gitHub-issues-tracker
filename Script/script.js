@@ -162,7 +162,6 @@ function openIssueModal(issue) {
     });
   }
 
-  // Open modal (DaisyUI)
   modal.showModal();
 }
 
@@ -216,7 +215,7 @@ searchBtn.addEventListener("click", async () => {
   const query = searchInput.value.trim();
 
   if (!query) {
-    // যদি input খালি → সব issues দেখাও
+    
     renderIssues(allIssues);
     return;
   }
@@ -228,13 +227,13 @@ searchBtn.addEventListener("click", async () => {
     const result = await res.json();
 
     if (result.status === "success") {
-      renderIssues(result.data); // search result show
+      renderIssues(result.data); 
     } else {
-      renderIssues([]); // No result
+      renderIssues([]);
     }
   } catch (err) {
     console.log(err);
-    renderIssues([]); // On error
+    renderIssues([]); 
   }
 });
 
