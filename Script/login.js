@@ -25,6 +25,6 @@ loginBtn.addEventListener("click", () => {
     } else {
       errorMsg.classList.remove("hidden");
     }
-    hideLoader(); 
-  }, 100); // simulate 
+    hideLoader();
+  }, 100); // simulate
 });

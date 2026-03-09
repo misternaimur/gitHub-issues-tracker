@@ -207,5 +207,36 @@ document.getElementById("closed-issues").addEventListener("click", (e) => {
   setActiveButton(e.target);
 });
 
+// Search Button Click
+
+const searchInput = document.getElementById("search-input");
+const searchBtn = document.getElementById("search-btn");
+
+searchBtn.addEventListener("click", async () => {
+  const query = searchInput.value.trim();
+
+  if (!query) {
+    // যদি input খালি → সব issues দেখাও
+    renderIssues(allIssues);
+    return;
+  }
+
+  try {
+    const res = await fetch(
+      `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${encodeURIComponent(query)}`,
+    );
+    const result = await res.json();
+
+    if (result.status === "success") {
+      renderIssues(result.data); // search result show
+    } else {
+      renderIssues([]); // No result
+    }
+  } catch (err) {
+    console.log(err);
+    renderIssues([]); // On error
+  }
+});
+
 // Start App
 getIssues();
