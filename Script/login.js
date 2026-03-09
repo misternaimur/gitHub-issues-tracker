@@ -1,18 +1,30 @@
 /** @format */
 
-if (localStorage.getItem("isLoggedIn")) {
-  window.location.href = "index.html";
+// login.js
+const loginBtn = document.getElementById("loginBtn");
+const loader = document.getElementById("loader");
+const errorMsg = document.getElementById("errorMsg");
+
+function showLoader() {
+  loader.style.display = "flex";
+}
+function hideLoader() {
+  loader.style.display = "none";
 }
 
-document.getElementById("loginBtn").addEventListener("click", function () {
+loginBtn.addEventListener("click", () => {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
 
-  if (username === "admin" && password === "admin123") {
-    localStorage.setItem("isLoggedIn", true);
+  showLoader(); // spinner on click
 
-    window.location.href = "index.html";
-  } else {
-    document.getElementById("errorMsg").classList.remove("hidden");
-  }
+  setTimeout(() => {
+    if (username === "admin" && password === "admin123") {
+      localStorage.setItem("isLoggedIn", "true");
+      window.location.href = "index.html";
+    } else {
+      errorMsg.classList.remove("hidden");
+    }
+    hideLoader(); 
+  }, 100); // simulate 
 });
