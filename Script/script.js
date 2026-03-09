@@ -13,7 +13,7 @@ async function getIssues() {
   const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
   const result = await res.json();
 
-  //allCards.innerHTML = "";
+  allCards.innerHTML = "";
 
   const labelClass = {
     bug: "badge-soft badge-error",
@@ -31,8 +31,8 @@ async function getIssues() {
       issue.status === "open" ? "border-[#00A96E]" : "border-[#A855F7]";
 
     const statusIcon =
-      issue.status === "open"?`<img src="../assets/Open-Status.png" alt="open">`
-        : `<img src="../assets/Closed-Status.png" alt="closed">`;
+      issue.status === "open"?`<img src="./assets/Open-Status.png" alt="open">`
+        : `<img src="./assets/Closed-Status.png" alt="closed">`;
 
     const statusupdate =
     issue.priority === "high"
