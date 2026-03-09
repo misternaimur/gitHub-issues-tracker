@@ -1,68 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-        <title>github-tracker</title>
+<!-- @format -->
 
-    <!-- tailwind -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Issues Tracker - Login</title>
+
+    <!-- Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- daisyUi -->
-     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" />
+  </head>
 
-     <!-- all theme  -->
+  <body class="bg-base-200 min-h-screen flex items-center justify-center">
+    <section class="w-[420px] bg-white p-8 rounded-xl shadow-lg space-y-5">
+      <div class="text-center space-y-3">
+        <img src="./assets/github-logo.png" class="w-14 mx-auto" />
 
-     <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+        <h2 class="text-2xl font-bold">GitHub Issues Tracker</h2>
 
-    <!-- google font -->
+        <p class="text-gray-500">Sign in to manage your issues</p>
+      </div>
 
-</head>
-<body>
-     <section class="login-section  w-[430px] p-6 mt-16 mx-auto shadow-lg space-y-5 rounded-xl ">
-        <div class="w-full mx-auto">
-            <div class="w-14 mx-auto">
-                <img src="./assets/github-logo.png" alt="">
-            </div>
-            <h2 class="text-2xl font-bold text-center">GitHub Issues Tracker</h1>
-            <p class="text-[#64748B] text-center">Sign in to manage your issues</p>
-            </div>
-            
-            <fieldset class="fieldset mt-4">
+      <!-- LOGIN FORM -->
 
-                    <!-- User Name -->
-                    <label class="label text-neutral font-bold">Username</label>
-                    <input maxlength="11" minlength="11"
-                        class="user-name  input w-full bg-base-200"
-                        type="text"
-                        placeholder="Enter Username"
-                        id="Username" />
-                        <p class=" text-primary font-blod">Default: admin</p>
+      <div class="space-y-4">
+        <div>
+          <label class="font-semibold">Username</label>
 
-                    <!-- PIN -->
-                    <label class="label text-neutral font-bold">Password</label>
-                    <input maxlength="6" minlength="6"
-                        class="input w-full bg-base-200"
-                        type="password"
-                        placeholder="Password"
-                        id="user-pin" />
-                        <p class=" text-primary font-blod">Default: admin123</p>
+          <input
+            id="username"
+            type="text"
+            placeholder="Enter Username"
+            class="input input-bordered w-full bg-base-200"
+          />
 
-                    <!-- Button -->
-                    <button id="login-btn" class="btn btn-primary mt-4 ">
-                        Sign In
-                    </button>
-                </fieldset>
+          <p class="text-sm text-primary">Default: admin</p>
+        </div>
 
-                <div><p class="text-[#64748B] text-center">or</p></div>
+        <div>
+          <label class="font-semibold">Password</label>
 
-                <p class="text-center">Demo Credentials:</p>
-                <div class="borde bg-base-200 w-full p-5 text-center">
-                    <p class="font-bold">Username: <span class="text-[#64748B]">admin</span></p>
-                    <p class="font-bold">Password: <span class="text-[#64748B]">admin123</span></p>
-                </div>
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter Password"
+            class="input input-bordered w-full bg-base-200"
+          />
+
+          <p class="text-sm text-primary">Default: admin123</p>
+        </div>
+
+        <button id="loginBtn" class="btn btn-primary w-full mt-2">
+          Sign In
+        </button>
+
+        <p id="errorMsg" class="text-red-500 text-sm hidden">
+          Invalid username or password
+        </p>
+      </div>
+
+      <div class="text-center text-gray-400">or</div>
+
+      <div class="bg-base-200 p-4 rounded text-center">
+        <p class="font-semibold">Demo Credentials</p>
+        <p>Username: <span class="text-gray-500">admin</span></p>
+        <p>Password: <span class="text-gray-500">admin123</span></p>
+      </div>
     </section>
-</body>
+    <script src="./Script/login.js"></script>
+  </body>
 </html>

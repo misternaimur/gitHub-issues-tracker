@@ -1,4 +1,12 @@
 
+// login.js
+
+if (!localStorage.getItem("isLoggedIn")) {
+  window.location.href = "login.html";
+}
+
+
+
 const allCards = document.getElementById("allCards");
 
 async function getIssues() {
